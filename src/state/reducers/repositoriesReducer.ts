@@ -1,4 +1,5 @@
-import ActionType from '../type/type';
+import {Action} from '../action/index';
+import  {ActionType} from '../type/type'
 
 interface Repositoriesstate {
     loading: boolean;
@@ -7,21 +8,6 @@ interface Repositoriesstate {
 }
 
 
-interface SearchRepoAction {
-    type: ActionType.SEARCH_REPO;
-}
-
-interface SearchRepoSuccessAction {
-    type: ActionType.SEARCH_REPO_SUCCESS;
-    payload: string[];
-}
-
-interface SearchRepoErrorAction {
-    type: ActionType.SEARCH_REPO_ERROR;
-    payload: string;
-}
-
-type Action = SearchRepoAction | SearchRepoSuccessAction | SearchRepoErrorAction;
 
 
 const reducer = (
