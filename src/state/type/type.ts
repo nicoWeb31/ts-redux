@@ -1,3 +1,7 @@
-export const SEARCH_REPO = 'SEARCH_REPO';
-export const SEARCH_REPO_SUCCESS = 'SEARCH_REPO_SUCCESS';
-export const SEARCH_REPO_ERROR = 'SEARCH_REPO_ERROR';
+enum ActionType {
+    SEARCH_REPO = "SEARCH_REPO",
+    SEARCH_REPO_SUCCESS ="SEARCH_REPO_SUCCESS",
+    SEARCH_REPO_ERROR = "SEARCH_REPO_ERROR"
+}
+
+export default ActionType;

@@ -1,3 +1,5 @@
+import ActionType from '../type/type';
+
 interface Repositoriesstate {
     loading: boolean;
     error: string | null;
@@ -6,29 +8,32 @@ interface Repositoriesstate {
 
 
 interface SearchRepoAction {
-    type: "SEARCH_REPO";
+    type: ActionType.SEARCH_REPO;
 }
 
 interface SearchRepoSuccessAction {
-    type: "SEARCH_REPO_SUCCESS";
+    type: ActionType.SEARCH_REPO_SUCCESS;
     payload: string[];
 }
 
 interface SearchRepoErrorAction {
-    type: "SEARCH_REPO_ERROR";
+    type: ActionType.SEARCH_REPO_ERROR;
     payload: string;
 }
 
+type Action = SearchRepoAction | SearchRepoSuccessAction | SearchRepoErrorAction;
+
+
 const reducer = (
     state: Repositoriesstate,
-    action: SearchRepoAction | SearchRepoSuccessAction | SearchRepoErrorAction
+    action: Action
 ): Repositoriesstate => {
     switch (action.type) {
-        case "SEARCH_REPO":
+        case ActionType.SEARCH_REPO:
             return { loading: true, error: null, data: [] };
-        case "SEARCH_REPO_SUCCESS":
+        case ActionType.SEARCH_REPO_SUCCESS:
             return { loading: false, error: null, data: action.payload };
-        case "SEARCH_REPO_ERROR":
+        case ActionType.SEARCH_REPO_ERROR:
             return { loading: false, error: action.payload, data: [] };
 
         default:
